@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HealthMate - Your Personal Health Assistant</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #f8f9fa);
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 260px;
+      text-align: center;
+      padding: 30px 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #444;
+    }
+
+    .btn {
+      margin-top: 15px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #28a745;
+      color: white;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #f1f1f1;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🩺 Welcome to HealthMate</h1>
+    <p>Your Personalized Healthcare Companion</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h3>General Doctor</h3>
+      <p>Ask health-related questions to an AI-powered doctor.</p>
+      <a href="/chat" class="btn">Open</a>
+    </div>
+
+    <div class="card">
+      <h3>Diet Planner</h3>
+      <p>Get personalized diet plans based on your health needs.</p>
+      <a href="/diet" class="btn">Plan Now</a>
+    </div>
+
+    <div class="card">
+      <h3>Pill Reminder</h3>
+      <p>Never miss a dose with daily medication reminders via email.</p>
+      <a href="/pill-reminder" class="btn">Set Reminder</a>
+    </div>
+
+    <div class="card">
+      <h3>Appointment Reminder</h3>
+      <p>Stay updated about upcoming doctor appointments.</p>
+      <a href="/appointment-reminder" class="btn">Remind Me</a>
+    </div>
+
+    <div class="card">
+      <h3>Book Appointment</h3>
+      <p>Schedule appointments with specialists easily.</p>
+      <a href="/book-appointment" class="btn">Book Now</a>
+    </div>
+
+    <div class="card">
+      <h3>Disease Prediction</h3>
+      <p>Check symptoms and predict potential health risks.</p>
+      <a href="/predict-disease" class="btn">Check Risk</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 HealthMate | Built with ❤️ during Hackathon
+  </footer>
+</body>
+</html>
