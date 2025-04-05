@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Doctor - HealthMate</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background: #87CEEB;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    .form-area {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .form-area input, .form-area select, .form-area button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-area button {
+      background: orange;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .form-area button:hover {
+      background: darkorange;
+    }
+    .output {
+      text-align: center;
+      margin-top: 20px;
+      color: green;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Book a Doctor Appointment</h1>
+  </div>
+  <div class="form-area">
+    <input type="date" id="date">
+    <select id="time">
+      <option value="10:00 AM">10:00 AM</option>
+      <option value="2:00 PM">2:00 PM</option>
+      <option value="4:00 PM">4:00 PM</option>
+    </select>
+    <input type="text" id="reason" placeholder="Reason for visit (e.g., Check-up)">
+    <button onclick="bookAppointment()">Book</button>
+    <div class="output" id="output"></div>
+  </div>
+  <div class="back-link">
+    <a href="home.html">Back to Home</a>
+  </div>
+  <script>
+    function bookAppointment() {
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const reason = document.getElementById('reason').value;
+      if (date && time && reason) {
+        document.getElementById('output').innerText = `Appointment booked for ${date} at ${time}!`;
+      } else {
+        alert('Please fill in all fields.');
+      }
+    }
+  </script>
+</body>
+</html>

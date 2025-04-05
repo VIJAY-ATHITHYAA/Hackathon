@@ -1,0 +1,97 @@
+  <title>Symptoms Chatbot - HealthMate</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background: #87CEEB;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    .chat-area {
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .user-bubble, .ai-bubble {
+      padding: 10px;
+      border-radius: 10px;
+      margin: 10px 0;
+      max-width: 70%;
+    }
+    .user-bubble {
+      background: #e0e0e0;
+      margin-left: auto;
+    }
+    .ai-bubble {
+      background: #87CEEB;
+      color: white;
+    }
+    .input-area {
+      display: flex;
+      gap: 10px;
+      padding: 20px;
+      justify-content: center;
+    }
+    .input-area input {
+      width: 70%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .input-area button {
+      background: green;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .input-area button:hover {
+      background: darkgreen;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Tell me your symptoms</h1>
+  </div>
+  <div class="chat-area">
+    <div class="user-bubble">I have a headache</div>
+    <div class="ai-bubble">Rest and hydrate—see a doctor if it persists</div>
+  </div>
+  <div class="input-area">
+    <input type="text" placeholder="Type your symptoms...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+  <div class="back-link">
+    <a href="home.html">Back to Home</a>
+  </div>
+  <script>
+    function sendMessage() {
+      const input = document.querySelector('.input-area input');
+      const chatArea = document.querySelector('.chat-area');
+      const userMessage = input.value.trim();
+      if (userMessage) {
+        // Add user message
+        chatArea.innerHTML += `<div class="user-bubble">${userMessage}</div>`;
+        // Add AI response (rule-based logic)
+        let aiResponse = "Rest and hydrate—see a doctor if it persists.";
+        if (userMessage.toLowerCase().includes("fever")) {
+          aiResponse = "Take paracetamol and rest. Consult a doctor if fever persists.";
+        }
+        chatArea.innerHTML += `<div class="ai-bubble">${aiResponse}</div>`;
+        input.value = ''; // Clear input
+      }
+    }
+  </script>
+</body>
+</html>

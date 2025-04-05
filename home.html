@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - HealthMate</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background: #87CEEB;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    .tile {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    .tile:hover {
+      transform: scale(1.05);
+    }
+    .tile a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Hello, User!</h1>
+  </div>
+  <div class="grid">
+    <div class="tile" style="background: #87CEEB;"><a href="symptoms.html">Check Symptoms</a></div>
+    <div class="tile" style="background: #90EE90;"><a href="doctor.html">Book Doctor</a></div>
+    <div class="tile" style="background: #FFA07A;"><a href="diet.html">Get Diet Plan</a></div>
+    <div class="tile" style="background: #DDA0DD;"><a href="meds.html">Manage Meds</a></div>
+  </div>
+  <div class="footer">
+    <a href="login.html">Logout</a>
+  </div>
+</body>
+</html>

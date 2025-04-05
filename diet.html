@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Plan - HealthMate</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background: #87CEEB;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    .form-area {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .form-area input, .form-area select, .form-area button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-area button {
+      background: green;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .form-area button:hover {
+      background: darkgreen;
+    }
+    .output {
+      text-align: center;
+      margin-top: 20px;
+      color: green;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Get Your Diet Plan</h1>
+  </div>
+  <div class="form-area">
+    <input type="number" id="age" placeholder="Age">
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <select id="goal">
+      <option value="lose">Lose Weight</option>
+      <option value="gain">Gain Muscle</option>
+    </select>
+    <button onclick="generatePlan()">Get Plan</button>
+    <div class="output" id="output"></div>
+  </div>
+  <div class="back-link">
+    <a href="home.html">Back to Home</a>
+  </div>
+  <script>
+    function generatePlan() {
+      const age = document.getElementById('age').value;
+      const weight = document.getElementById('weight').value;
+      const goal = document.getElementById('goal').value;
+      if (age && weight && goal) {
+        let plan = '';
+        if (goal === 'lose') {
+          plan = "50g oats, 200g veggies daily, and avoid sugary foods.";
+        } else if (goal === 'gain') {
+          plan = "100g protein, 300g carbs daily, and include strength training.";
+        }
+        document.getElementById('output').innerText = plan;
+      } else        alert('Please fill in all fields.');
+      }
+    
+  </script>
+</body>
+</html>

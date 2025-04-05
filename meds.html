@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Medications - HealthMate</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background: #87CEEB;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    .med-list {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .med-list ul {
+      list-style: none;
+      padding: 0;
+    }
+    .med-list li {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    .med-list li:last-child {
+      border-bottom: none;
+    }
+    .form-area {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .form-area input, .form-area button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-area button {
+      background: purple;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .form-area button:hover {
+      background: darkviolet;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Manage Medications</h1>
+  </div>
+  <div class="med-list">
+    <ul id="medications">
+      <li>Med 1 - 8 AM</li>
+      <li>Med 2 - 6 PM</li>
+    </ul>
+  </div>
+  <div class="form-area">
+    <input type="text" id="medName" placeholder="Medication Name">
+    <input type="time" id="medTime">
+    <button onclick="addMedication()">Add Medication</button>
+  </div>
+  <div class="back-link">
+    <a href="home.html">Back to Home</a>
+  </div>
+  <script>
+    function addMedication() {
+      const medName = document.getElementById('medName').value;
+      const medTime = document.getElementById('medTime').value;
+      if (medName && medTime) {
+        const medList = document.getElementById('medications');
+        medList.innerHTML += `<li>${medName} - ${medTime}</li>`;
+        document.getElementById('medName').value = '';
+        document.getElementById('medTime').value = '';
+      } else {
+        alert('Please fill in all fields.');
+      }
+    }
+  </script>
+</body>
+</html>
