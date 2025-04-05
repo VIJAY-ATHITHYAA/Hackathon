@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>💊 Pill Reminder</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f8ff;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #28a745;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="time"],
+    input[type="email"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    button {
+      padding: 12px;
+      background: #28a745;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .pill-list {
+      margin-top: 30px;
+    }
+
+    .pill-item {
+      background: #e3f7e9;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      border-left: 5px solid #28a745;
+    }
+
+    .flash {
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    .flash.success { background-color: #d4edda; color: #155724; }
+    .flash.warning { background-color: #fff3cd; color: #856404; }
+    .flash.error   { background-color: #f8d7da; color: #721c24; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>💊 Pill Reminder</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/">
+      <div>
+        <label for="medName">Pill Name</label>
+        <input type="text" id="medName" name="medName" placeholder="e.g. Paracetamol" required>
+      </div>
+
+      <div>
+        <label for="medTime">Reminder Time</label>
+        <input type="time" id="medTime" name="medTime" required>
+      </div>
+
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+
+      <button type="submit">➕ Add Reminder</button>
+    </form>
+
+    <div class="pill-list">
+      <h3>⏰ Upcoming Reminders</h3>
+      {% if reminders %}
+        {% for reminder in reminders %}
+          <div class="pill-item">
+            💊 <strong>{{ reminder.name }}</strong><br>
+            🕒 {{ reminder.time }}<br>
+            📧 {{ reminder.email }}
+          </div>
+        {% endfor %}
+      {% else %}
+        <p style="text-align: center;">No reminders scheduled yet!</p>
+      {% endif %}
+    </div>
+  </div>
+
+</body>
+</html>
