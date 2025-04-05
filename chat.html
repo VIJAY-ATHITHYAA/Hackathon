@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🩺 HealthMate Chatbot</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .chatbox {
+      width: 100%;
+      max-width: 600px;
+      height: 90vh;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 20px;
+      background-color: #007bff;
+      color: white;
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background-color: #f9fbfc;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      padding: 12px 16px;
+      border-radius: 16px;
+      max-width: 80%;
+      word-wrap: break-word;
+      line-height: 1.5;
+    }
+
+    .user {
+      background: #dcf8ff;
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    .bot {
+      background: #d4edda;
+      align-self: flex-start;
+      text-align: left;
+    }
+
+    form {
+      display: flex;
+      padding: 15px;
+      border-top: 1px solid #ddd;
+      background: #ffffff;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    button {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      margin-left: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .chat-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chat-messages::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chatbox">
+    <h2>🩺 HealthMate AI Chatbot</h2>
+
+    <div class="chat-messages" id="messages">
+      {% for sender, message in messages %}
+        <div class="message {{ 'user' if sender == 'You' else 'bot' }}">
+          <strong>{{ sender }}:</strong><br> {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+
+    <form method="POST" autocomplete="off">
+      <input type="text" name="message" placeholder="Ask your health question..." required>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    // Scroll to the bottom of the chat on load
+    window.onload = function () {
+      const msgContainer = document.getElementById("messages");
+      msgContainer.scrollTop = msgContainer.scrollHeight;
+    };
+  </script>
+</body>
+</html>
