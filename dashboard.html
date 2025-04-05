@@ -1,0 +1,44 @@
+<!-- templates/dashboard.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4 text-success">Welcome, {{ user }} 👋</h2>
+
+<div class="row">
+  <!-- Card 1: Symptom Checker -->
+  <div class="col-md-4">
+    <div class="card shadow-sm mb-4">
+      <div class="card-body text-center">
+        <h5 class="card-title text-primary">🩺 Symptom Checker</h5>
+        <p class="card-text">Describe symptoms and get AI insights.</p>
+        <a href="/symptom-checker" class="btn btn-outline-primary">Start</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2: Risk Prediction -->
+  <div class="col-md-4">
+    <div class="card shadow-sm mb-4">
+      <div class="card-body text-center">
+        <h5 class="card-title text-danger">💉 Disease Risk</h5>
+        <p class="card-text">Predict diabetes, hypertension & heart issues.</p>
+        <a href="#" class="btn btn-outline-danger disabled">Coming Soon</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3: Lifestyle Tips -->
+  <div class="col-md-4">
+    <div class="card shadow-sm mb-4">
+      <div class="card-body text-center">
+        <h5 class="card-title text-success">🍎 Daily Health Tip</h5>
+        <p class="card-text">“Drink water, move your body, and sleep well.”</p>
+        <a href="#" class="btn btn-outline-success disabled">More Soon</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center mt-4">
+  <a href="/logout" class="btn btn-secondary">Logout</a>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+<!-- templates/symptom_checker.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4 text-success">Symptom Checker 🤒</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label class="form-label">Enter your symptoms:</label>
+    <textarea name="symptoms" class="form-control" rows="4" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Analyze</button>
+</form>
+
+{% if result %}
+  <div class="alert alert-info mt-4">
+    <strong>AI Response:</strong><br>{{ result | safe }}
+  </div>
+{% endif %}
+{% endblock %}
